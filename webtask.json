@@ -40,8 +40,7 @@
     "AUTH0_CUSTOM_DOMAIN": {
       "description": "Custom domain",
       "example": "example.com",
-      "required": false,
-      "former": "AUTH0_ISSUER_DOMAIN"
+      "required": false
     },
     "ALLOW_AUTHZ": {
       "description": "Allow enabling of Authorization Extension integration (Deprecated)",
