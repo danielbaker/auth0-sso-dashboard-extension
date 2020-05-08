@@ -35,6 +35,11 @@
       "example": "example.com",
       "required": false
     },
+    "REVERSE_PROXY_URL": {
+      "description": "URL of the reverse proxy that serves the extension. Leave blank if no reverse proxy in use",
+      "example": "reverse-proxy.com",
+      "required": false
+    },
     "ALLOW_AUTHZ": {
       "description": "Allow enabling of Authorization Extension integration (Deprecated)",
       "type": "select",

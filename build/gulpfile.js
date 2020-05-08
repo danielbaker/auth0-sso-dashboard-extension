@@ -5,11 +5,9 @@ const ngrok = require('ngrok');
 const util = require('gulp-util');
 const nodemon = require('gulp-nodemon');
 
-gulp.task('run', () => {
-  ngrok.connect(3000, (ngrokError, url) => {
-    if (ngrokError) {
-      throw ngrokError;
-    }
+gulp.task('run', async () => {
+  try {
+    const url = await ngrok.connect(3000);
 
     nodemon({
       script: './build/webpack/server.js',
@@ -38,5 +36,8 @@ gulp.task('run', () => {
       open(publicUrl);
       util.log('Public Url:', publicUrl);
     }, 4000);
-  });
+  } catch (ngrokError) {
+    console.log(JSON.stringify(ngrokError));
+    throw ngrokError;
+  }
 });

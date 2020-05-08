@@ -13,7 +13,7 @@ const getAuthorizationApiUrl = () => {
     return config('AUTHZ_API_DEV_URL');
   }
 
-  const publicUrl = config('PUBLIC_WT_URL');
+  const publicUrl = config('PUBLIC_URL');
 
   if (publicUrl[publicUrl.length - 1] === '/') {
     publicUrl[publicUrl.length - 1] = '';

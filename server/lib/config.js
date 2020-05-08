@@ -20,6 +20,10 @@ const config = (key) => {
     throw new Error('A configuration provider has not been set');
   }
 
+  if (key === 'PUBLIC_URL') {
+    return currentProvider('REVERSE_PROXY_URL') || settings['PUBLIC_WT_URL'];
+  }
+
   if (key === 'AUTH0_CUSTOM_DOMAIN') {
     return currentProvider('AUTH0_CUSTOM_DOMAIN') || currentProvider('AUTH0_DOMAIN');
   }

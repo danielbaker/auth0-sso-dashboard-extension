@@ -33,7 +33,7 @@ export default (configProvider, storageProvider) => {
     audience: 'urn:sso-dashboard',
     rta: config('AUTH0_RTA').replace('https://', ''),
     domain: config('AUTH0_DOMAIN'),
-    baseUrl: config('PUBLIC_WT_URL'),
+    baseUrl: config('PUBLIC_URL'),
     clientName: 'SSO Dashboard',
     urlPrefix: '/admins',
     sessionStorageKey: 'sso-dashboard:apiToken',
