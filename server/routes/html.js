@@ -51,7 +51,7 @@ export default () => {
       AUTH0_CLIENT_ID: config('EXTENSION_CLIENT_ID'),
       AUTH0_MANAGE_URL: config('AUTH0_MANAGE_URL') || 'https://manage.auth0.com',
       ALLOW_AUTHZ: config('ALLOW_AUTHZ'),
-      BASE_URL: urlHelpers.getBaseUrl(req),
+      BASE_URL: config('PUBLIC_URL'),
       BASE_PATH: urlHelpers.getBasePath(req),
       TITLE: config('TITLE')
     };
