@@ -10,6 +10,7 @@
   "category": "end_user",
   "logoUrl": "https://cdn.auth0.com/extensions/auth0-sso-dashboard/assets/logo.svg",
   "initialUrlPath": "/admins/login",
+  "codeUrl": "https://raw.githubusercontent.com/danielbaker/auth0-sso-dashboard-extension/master/build/bundle.js",
   "repository": "https://github.com/danielbaker/auth0-sso-dashboard-extension",
   "keywords": [
     "extension"
