@@ -8,7 +8,8 @@ export default (storage) => {
   const api = Router();
 
   api.get('/', requireScope('manage:authorization'), (req, res, next) => {
-    return res.json({ authorizationApiAvailable: !!config('USER_GROUPS') });
+    const enabled = !!config('USER_GROUPS');
+    return res.json({ authorizationApiAvailable: enabled, authorizationEnabled: enabled });
   });
 
   api.post('/', requireScope('manage:authorization'), (req, res, next) => {
