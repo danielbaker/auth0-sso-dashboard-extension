@@ -47,21 +47,10 @@
       "example": "sso.company.com",
       "required": false
     },
-    "ALLOW_AUTHZ": {
-      "description": "Allow enabling of Authorization Extension integration (Deprecated)",
-      "type": "select",
-      "allowMultiple": false,
-      "default": "false",
-      "options": [
-        {
-          "value": "false",
-          "text": "No"
-        },
-        {
-          "value": "true",
-          "text": "Yes"
-        }
-      ]
+    "USER_GROUPS": {
+      "description": "A comma separated list of groups that users can belong to giving them access to different applications",
+      "example": "admins,users",
+      "required": false
     }
   }
 }
