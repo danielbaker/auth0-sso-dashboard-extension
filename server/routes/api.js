@@ -30,7 +30,7 @@ export default (storage) => {
     credentialsRequired: false,
     secret: config('EXTENSION_SECRET'),
     audience: 'urn:sso-dashboard',
-    baseUrl: config('PUBLIC_WT_URL'),
+    baseUrl: config('PUBLIC_URL'),
     onLoginSuccess: (req, res, next) => {
       const currentRequest = req;
       currentRequest.user.scope = [ 'read:applications', 'manage:applications', 'manage:authorization' ];
