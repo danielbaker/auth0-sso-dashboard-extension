@@ -1,11 +1,10 @@
-const settings = { };
+const settings = {};
 let currentProvider = null;
-
 
 const boolify = (item) => {
   // as we're trying to "boolify" every secret, we need to make sure we're processing only boolean secrets
-  if (item === 'true' || item === 'false') {
-    return item === 'true';
+  if (item === "true" || item === "false") {
+    return item === "true";
   }
 
   return item;
@@ -17,19 +16,24 @@ const config = (key) => {
   }
 
   if (!currentProvider) {
-    throw new Error('A configuration provider has not been set');
+    throw new Error("A configuration provider has not been set");
   }
 
-  if (key === 'PUBLIC_URL') {
-    return currentProvider('REVERSE_PROXY_URL') || settings['PUBLIC_WT_URL'];
+  if (key === "PUBLIC_URL") {
+    return currentProvider("PUBLIC_URL") || config("PUBLIC_WT_URL");
   }
 
-  if (key === 'AUTH0_CUSTOM_DOMAIN') {
-    return currentProvider('AUTH0_CUSTOM_DOMAIN') || currentProvider('AUTH0_DOMAIN');
+  if (key === "AUTH0_CUSTOM_DOMAIN") {
+    return (
+      currentProvider("AUTH0_CUSTOM_DOMAIN") || currentProvider("AUTH0_DOMAIN")
+    );
   }
 
-  if (key === 'IS_APPLIANCE') {
-    return config('AUTH0_RTA') && config('AUTH0_RTA').replace('https://', '') !== 'auth0.auth0.com';
+  if (key === "IS_APPLIANCE") {
+    return (
+      config("AUTH0_RTA") &&
+      config("AUTH0_RTA").replace("https://", "") !== "auth0.auth0.com"
+    );
   }
 
   return boolify(currentProvider(key));
