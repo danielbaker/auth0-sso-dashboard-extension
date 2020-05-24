@@ -8,20 +8,12 @@ export default (storage) => {
   const api = Router();
 
   api.get('/', requireScope('manage:applications'), (req, res, next) => {
-    if (!config('ALLOW_AUTHZ')) {
+    const groups = config('USER_GROUPS')
+    if (!groups) {
       return res.json([]);
     }
 
-    return storage.read()
-      .then(data => {
-        if (data.authorizationEnabled) {
-          return getGroups(req.params.appId)
-            .then(groups => res.json(groups));
-        }
-
-        return res.json([]);
-      })
-      .catch(next);
+    return res.json(groups.split(',').map(g => g.trim()).map(g => ({_id: g, name: g})));
   });
 
   return api;

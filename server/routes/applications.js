@@ -31,11 +31,7 @@ export default (auth0, storage) => {
       })
       .then(() => storage.read())
       .then((data) => {
-        if (config('ALLOW_AUTHZ') && data.authorizationEnabled) {
-          return getGroupsForUser(req.user.sub);
-        }
-
-        return null;
+        return req.user["http://sso-dashboard.com/groups"]
       })
       .then((userGroups) => {
         const result = { };

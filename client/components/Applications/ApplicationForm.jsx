@@ -100,7 +100,7 @@ export default createForm('application', class extends Component {
   }
 
   getGroups = () => {
-    return this.props.groups.toJS().map(item => ({ value: item._id, text: item.name }));
+    return this.props.groups.toJS().map(item => ({ value: item, text: item }));
   }
 
   getIsOpenId() {
@@ -134,7 +134,7 @@ export default createForm('application', class extends Component {
   }
 
   renderGroups = (groups) => {
-    if (!this.props.authorizationEnabled) {
+    if (!groups || groups.length === 0) {
       return '';
     }
 
