@@ -5,7 +5,6 @@ import { Router } from 'express';
 import config from '../lib/config';
 import { requireScope } from '../lib/middlewares';
 import { moveApplication, saveApplication, deleteApplication } from '../lib/applications';
-import { getGroupsForUser } from '../lib/queries';
 import { hasGroup } from '../lib/user';
 import multipartRequest from '../lib/multipartRequest';
 

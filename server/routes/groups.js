@@ -1,7 +1,6 @@
 import { Router } from 'express';
 
 import config from '../lib/config';
-import { getGroups } from '../lib/queries';
 import { requireScope } from '../lib/middlewares';
 
 export default (storage) => {
