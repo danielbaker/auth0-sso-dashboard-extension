@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { ForbiddenError } from 'auth0-extension-tools';
 import { middlewares } from 'auth0-extension-express-tools';
+import cors from 'cors';
 
 import config from '../lib/config';
 import connections from './connections';
@@ -10,6 +11,10 @@ import authorization from './authorization';
 
 export default (storage) => {
   const api = Router();
+
+  if (process.env.NODE_ENV === 'development') {
+    api.use(cors())
+  } 
 
   // Allow end users to authenticate.
   api.use(middlewares.authenticateUsers.optional({

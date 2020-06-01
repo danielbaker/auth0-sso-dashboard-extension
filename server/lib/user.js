@@ -5,7 +5,11 @@ import _ from "lodash";
  */
 // eslint-disable-next-line import/prefer-default-export
 export const hasGroup = (userGroups, appGroups) => {
-  if (!appGroups || !appGroups.length) {
+  if (
+    !appGroups ||
+    appGroups.length === 0 ||
+    (appGroups.length === 1 && !appGroups[0])
+  ) {
     return true;
   }
 
