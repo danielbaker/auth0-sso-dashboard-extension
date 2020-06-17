@@ -45,6 +45,11 @@
       "example": "sso.company.com",
       "required": false
     },
+    "FAVICON_URL": {
+      "description": "URL to find dashboard favicon",
+      "example": "https://example.com/favicon.ico",
+      "required": false
+    },
     "USER_GROUPS": {
       "description": "A comma separated list of groups that users can belong to giving them access to different applications",
       "example": "admins,users",

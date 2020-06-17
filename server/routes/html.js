@@ -14,7 +14,7 @@ export default () => {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="https://cdn.auth0.com/styleguide/4.6.13/lib/logos/img/favicon.png">
+    <% if (assets.favicon) { %><link rel="shortcut icon" href="<%= assets.favicon %>"><% } %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://cdn.auth0.com/styles/zocial.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.auth0.com/manage/v0.3.1672/css/index.min.css" />
@@ -25,6 +25,10 @@ export default () => {
   </head>
   <body>
     <div id="app"></div>
+    <script type="text/javascript">
+      // IE polyfills
+      String.prototype.startsWith||Object.defineProperty(String.prototype,"startsWith",{value:function(t,n){var r=n>0?0|n:0;return this.substring(r,r+t.length)===t}}),String.prototype.endsWith||(String.prototype.endsWith=function(t,n){return(void 0===n||n>this.length)&&(n=this.length),this.substring(n-t.length,n)===t});
+    </script>
     <script type="text/javascript" src="//cdn.auth0.com/js/auth0/8.6/auth0.min.js"></script>
     <script type="text/javascript" src="//cdn.auth0.com/manage/v0.3.1672/js/bundle.js"></script>
     <script type="text/javascript">window.config = <%- JSON.stringify(config) %>;</script>
@@ -63,6 +67,7 @@ export default () => {
         config: settings,
         assets: {
           customCss: config('CUSTOM_CSS'),
+          favicon: config('FAVICON_URL'),
           version: clientVersion
         }
       }));
@@ -74,6 +79,7 @@ export default () => {
         config: settings,
         assets: {
           customCss: config('CUSTOM_CSS'),
+          favicon: config('FAVICON_URL'),
           bundle: 'http://localhost:3000/app/bundle.js'
         }
       };
@@ -81,6 +87,7 @@ export default () => {
       if (!err && manifest) {
         locals.assets = {
           customCss: config('CUSTOM_CSS'),
+          favicon: config('FAVICON_URL'),
           ...JSON.parse(manifest)
         };
       }
