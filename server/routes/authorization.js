@@ -3,7 +3,7 @@ import { Router } from 'express';
 import config from '../lib/config';
 import { requireScope } from '../lib/middlewares';
 
-export default (storage) => {
+export default (auth0, storage) => {
   const api = Router();
 
   api.get('/', requireScope('manage:authorization'), (req, res, next) => {
